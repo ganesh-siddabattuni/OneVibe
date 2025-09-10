@@ -4,19 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
-import java.util.List;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductResponse {
+public class CategoryResponse {
     private Long id;
     private String name;
-    private String description;
-    private String sku;
-    private BigDecimal price;
-    private CategoryResponse category;
-    private List<ProductVariantDto> variants;
+    private String slug;
 }

@@ -1,0 +1,11 @@
+<div class="hero-container">
+  <swiper-container init="false">
+    <swiper-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" alt="Hero Image">
+      <div class="slide-content">
+        <h1>{{ slide.headline }}</h1>
+        <button class="cta-button">Shop Now</button>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</div>

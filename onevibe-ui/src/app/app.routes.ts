@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { Home } from './home/home';
+import { HomePage } from './pages/home-page/home-page';
 import { Cart } from './cart/cart';
 
 export const routes: Routes = [
-  { path: '', component: Home },
+  { path: '', component: HomePage }, // <-- Use the new component as the default
   { path: 'cart', component: Cart },
   {
     path: 'auth',

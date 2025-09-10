@@ -1,0 +1,15 @@
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  width: 250px;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

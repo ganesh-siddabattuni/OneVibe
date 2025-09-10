@@ -1,0 +1,19 @@
+<div class="product-grid">
+  <mat-card *ngFor="let product of products" class="product-card">
+    <mat-card-header>
+      <mat-card-title>{{ product.name }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://placehold.co/400x300/EFEFEF/333?text=Product"
+      alt="Photo of {{ product.name }}"
+    />
+    <mat-card-content>
+      <p>{{ product.description }}</p>
+      <p class="price">{{ product.price | currency : 'USD' }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="addToCart(product)">Add to Cart</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -17,4 +17,8 @@ export class CartService {
     this.cartItems.next(updatedItems);
     console.log('Product added to cart!', updatedItems);
   }
+
+  clearCart() {
+    this.cartItems.next([]);
+  }
 }

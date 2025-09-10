@@ -1,0 +1,29 @@
+<div class="cart-container">
+  <h1>Your Shopping Cart</h1>
+  <table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+      <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let item">{{ item.price | currency : 'USD' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let item">1</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <div class="cart-summary">
+    <h2>Total: {{ totalPrice | currency : 'USD' }}</h2>
+    <button mat-raised-button color="primary" (click)="proceedToCheckout()">
+      Proceed to Checkout
+    </button>
+  </div>
+</div>

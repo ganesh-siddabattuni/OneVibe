@@ -1,16 +1,20 @@
 <div class="grid-container">
   <h2>For Your Rotation</h2>
   <div class="product-grid">
-    <mat-card *ngFor="let product of products" class="product-card">
-      <img mat-card-image src="https://placehold.co/400x400/EFEFEF/333?text=Shoe" [alt]="product.name">
-      <mat-card-content>
-        <mat-card-title>{{ product.name }}</mat-card-title>
-        <p class="description">{{ product.description }}</p>
-        <p class="price">{{ product.price | currency:'USD' }}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-flat-button color="primary" (click)="addToCart(product)">Add to Cart</button>
-      </mat-card-actions>
-    </mat-card>
+    <a *ngFor="let product of products" [routerLink]="['/product', product.id]" class="product-link">
+      <mat-card class="product-card">
+        <img mat-card-image src="https://placehold.co/400x400/EFEFEF/333?text=Shoe" [alt]="product.name">
+        <mat-card-content>
+          <mat-card-title>{{ product.name }}</mat-card-title>
+          <p class="description">{{ product.description }}</p>
+          <p class="price">{{ product.price | currency:'USD' }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button color="primary" (click)="addToCart(product); $event.stopPropagation()">
+            Add to Cart
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </a>
   </div>
 </div>

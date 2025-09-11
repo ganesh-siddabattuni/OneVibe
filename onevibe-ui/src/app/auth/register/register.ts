@@ -21,7 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule
   ],
   templateUrl: './register.html',
-  styleUrls: ['./register.css']
+  styleUrls: ['../auth-pages.css']
 })
 export class Register implements OnInit { // Using your 'Register' class name
   registerForm!: FormGroup;

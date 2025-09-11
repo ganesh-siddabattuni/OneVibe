@@ -16,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class Cart implements OnInit {
   cartItems: any[] = [];
-  totalPrice: number = 0;
+  total: number = 0; // renamed from totalPrice
   displayedColumns: string[] = ['name', 'price', 'quantity'];
 
   constructor(
@@ -43,7 +43,7 @@ export class Cart implements OnInit {
   }
 
   calculateTotal(items: any[]): void {
-    this.totalPrice = items.reduce((acc, item) => acc + item.price, 0);
+    this.total = items.reduce((acc, item) => acc + item.price, 0); // renamed to use total
   }
 
   proceedToCheckout(): void {

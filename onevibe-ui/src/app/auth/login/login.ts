@@ -22,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule
   ],
   templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  styleUrls: ['../auth-pages.css']
 })
 export class Login implements OnInit {
   loginForm!: FormGroup;

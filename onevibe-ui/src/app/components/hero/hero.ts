@@ -15,15 +15,15 @@ export class Hero implements AfterViewInit {
   public slides = [
     {
       headline: 'Just Do It.',
-      image: 'https://placehold.co/1200x500/111111/FFFFFF?text=Just+Do+It.'
+      image: 'https://placeholderimage.org/api/image/1200x500/000000/000000'
     },
     {
       headline: 'New Arrivals',
-      image: 'https://placehold.co/1200x500/CCCCCC/000000?text=New+Arrivals'
+      image: 'https://placeholderimage.org/api/image/1200x500/000000/000000'
     },
     {
       headline: 'Shop the Collection',
-      image: 'https://placehold.co/1200x500/999999/FFFFFF?text=Shop+Now'
+      image: 'https://placeholderimage.org/api/image/1200x500/000000/000000'
     }
   ];
 

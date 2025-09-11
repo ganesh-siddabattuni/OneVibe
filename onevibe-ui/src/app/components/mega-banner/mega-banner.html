@@ -1,0 +1,9 @@
+<div class="mega-banner-section">
+  <div *ngFor="let banner of banners" class="banner-container" [style.backgroundImage]="'url(' + banner.image + ')'">
+    <div class="banner-content">
+      <h2>{{ banner.title }}</h2>
+      <p>{{ banner.desc }}</p>
+      <button class="cta-button" [routerLink]="banner.link">{{ banner.cta }}</button>
+    </div>
+  </div>
+</div>

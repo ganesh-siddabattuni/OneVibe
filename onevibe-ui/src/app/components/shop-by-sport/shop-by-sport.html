@@ -1,0 +1,11 @@
+<div class="shop-by-sport-container">
+  <h2>Shop by Sport</h2>
+  <div class="sport-grid">
+    <a *ngFor="let sport of sports" class="sport-item" routerLink="/#">
+      <div class="sport-image-container">
+        <img [src]="sport.image" [alt]="sport.name">
+      </div>
+      <p>{{ sport.name }}</p>
+    </a>
+  </div>
+</div>

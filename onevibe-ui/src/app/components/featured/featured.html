@@ -1,0 +1,11 @@
+<div class="featured-container">
+  <h2>Featured Collections</h2>
+  <swiper-container slides-per-view="auto" space-between="15" navigation="true">
+    <swiper-slide *ngFor="let collection of collections">
+      <mat-card class="collection-card">
+        <img mat-card-image [src]="collection.image" alt="{{ collection.title }}">
+        <mat-card-title>{{ collection.title }}</mat-card-title>
+      </mat-card>
+    </swiper-slide>
+  </swiper-container>
+</div>

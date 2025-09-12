@@ -10,27 +10,28 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./featured.css'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] // Allows use of swiper-container tags
 })
-export class Featured { // Using your 'Featured' naming
+
+export class Featured { 
   collections = [
     {
       title: 'New Arrivals',
-      image: 'https://placehold.co/400x500/EFEFEF/333?text=New'
+      image: 'https://placehold.co/400x500/1a1a1a/ffffff?text=New'
     },
     {
-      title: 'Bestsellers',
-      image: 'https://placehold.co/400x500/CCCCCC/000000?text=Popular'
+      title: 'Shoes',
+      image: 'https://placehold.co/400x500/2a2a2a/ffffff?text=Shoes'
     },
     {
-      title: 'Jordan Collection',
-      image: 'https://placehold.co/400x500/111111/FFFFFF?text=Jordan'
+      title: 'Gym Wear',
+      image: 'https://placehold.co/400x500/3a3a3a/ffffff?text=Gym'
     },
     {
-      title: 'Running Essentials',
-      image: 'https://placehold.co/400x500/DDDDDD/000000?text=Running'
+      title: 'Lifestyle',
+      image: 'https://placehold.co/400x500/4a4a4a/ffffff?text=Lifestyle'
     },
     {
-      title: 'Final Sale',
-      image: 'https://placehold.co/400x500/FF0000/FFFFFF?text=Sale'
+      title: 'Sale',
+      image: 'https://placehold.co/400x500/FF8400/000000?text=Sale'
     }
   ];
 }

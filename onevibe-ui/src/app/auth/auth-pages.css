@@ -1,33 +1,109 @@
-
 :host {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 64px); /* Full height minus toolbar */
-  background-color: #f5f5f5;
+  min-height: calc(100vh - 64px);
+  background: url('../../assets/Auth_Background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px;
 }
 
 mat-card {
   width: 100%;
   max-width: 400px;
-  padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+  padding: 2.5rem;
+  background-color: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 mat-card-title {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  color: #ffffff;
 }
 
+/* --- NEW CUSTOM STYLES FOR FORM FIELDS --- */
+/* --- NEW CUSTOM STYLES FOR FORM FIELDS --- */
+
+/* This makes the form fields take up the full width */
 mat-form-field {
   width: 100%;
+  position: relative; /* Needed for the pseudo-element */
 }
+
+/* Remove the default background for a cleaner look */
+::ng-deep .mat-mdc-form-field-flex {
+  background-color: transparent !important;
+}
+/* Style the default (unfocused) border */
+::ng-deep .mdc-notched-outline > * {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Change the color of the floating label when focused */
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-floating-label {
+  color: #FF8400 !important; /* Orange */
+  
+  /* Add these two lines to fix the cutoff */
+  background-color: rgba(18, 18, 18, 0.95); /* Match the mat-card background */
+  padding: 0 5px; /* Add a little horizontal space */
+}
+
+/* --- THIS IS THE KEY FIX FOR THE BORDER GAP --- */
+/* Make the original notched border transparent on focus... */
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline > * {
+  border-color: transparent !important;
+}
+/* ...and then draw our own solid border behind it using a pseudo-element. */
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-form-field-flex::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #FF8400; /* Create our solid orange border */
+  border-radius: 4px; /* Match the default border-radius */
+  pointer-events: none; /* Allows clicks to pass through */
+}
+
+/* Style the input text and placeholder */
+::ng-deep .mat-mdc-input-element {
+  color: #ffffff !important;
+}
+::ng-deep .mdc-floating-label {
+  color: #a0a0a0 !important;
+}
+/* --- END OF NEW STYLES --- */
 
 button[mat-raised-button] {
   width: 100%;
   padding: 18px 0;
   font-size: 1rem;
+  font-weight: bold;
   border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  margin-top: 1rem;
+}
+
+button[mat-raised-button]:hover {
+  transform: translateY(-3px);
+}
+
+.switch-form-link {
+  display: block;
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #a0a0a0;
+}
+
+.switch-form-link a {
+  color: #FF8400; /* Orange link */
+  text-decoration: none;
+  font-weight: bold;
 }

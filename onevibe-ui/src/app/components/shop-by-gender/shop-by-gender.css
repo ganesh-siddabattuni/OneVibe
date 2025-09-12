@@ -1,0 +1,48 @@
+.gender-container {
+  padding: 3rem 4rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.gender-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.gender-item {
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gender-item .image-wrapper {
+  transition: transform 0.3s ease-in-out;
+}
+
+.gender-item:hover .image-wrapper {
+  transform: scale(1.05);
+}
+
+.gender-item img {
+  width: 100%;
+  display: block;
+  filter: brightness(60%);
+}
+
+.gender-item h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+}

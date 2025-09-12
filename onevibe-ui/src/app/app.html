@@ -1,17 +1,18 @@
-<mat-toolbar color="primary">
-  <span routerLink="/">OneVibe</span>
+<mat-toolbar class="main-toolbar">
+  <span routerLink="/" class="main-title">OneVibe</span>
   <span class="spacer"></span>
 
-  @if (!authService.isLoggedIn()) {
+  <ng-container *ngIf="!authService.isLoggedIn()">
     <button mat-button routerLink="/auth/login">Login</button>
     <button mat-button routerLink="/auth/register">Register</button>
-  } @else {
-    <button mat-button (click)="logout()">Logout</button>
-  }
+  </ng-container>
 
-  <button mat-icon-button routerLink="/cart">
-    <mat-icon>shopping_cart</mat-icon>
-  </button>
+  <ng-container *ngIf="authService.isLoggedIn()">
+    <button mat-button (click)="logout()">Logout</button>
+    <button mat-icon-button routerLink="/cart">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </ng-container>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

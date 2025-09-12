@@ -1,5 +1,7 @@
 package com.onevibe.order_service.service;
 
+import com.onevibe.order_service.client.InventoryClient;
+import com.onevibe.order_service.dto.InventoryResponse;
 import com.onevibe.order_service.dto.OrderLineItemsDto;
 import com.onevibe.order_service.dto.OrderRequest;
 import com.onevibe.order_service.model.Order;
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final InventoryClient inventoryClient; // Inject the Feign client
 
     public void placeOrder(OrderRequest orderRequest) {
         Order order = new Order();
@@ -28,13 +31,23 @@ public class OrderService {
                 .stream()
                 .map(this::mapToDto)
                 .collect(Collectors.toList());
-
         order.setOrderLineItemsList(orderLineItems);
 
-        // Here we would normally call the Inventory Service to check stock.
-        // For now, we'll assume everything is in stock.
+        // Collect all SKU codes from the order
+        List<String> skuCodes = order.getOrderLineItemsList().stream()
+                .map(OrderLineItem::getSkuCode)
+                .collect(Collectors.toList());
 
-        orderRepository.save(order);
+        // Call Inventory Service and check stock
+        List<InventoryResponse> inventoryResponses = inventoryClient.areInStock(skuCodes);
+
+        boolean allProductsInStock = inventoryResponses.stream().allMatch(InventoryResponse::isInStock);
+
+        if (allProductsInStock) {
+            orderRepository.save(order);
+        } else {
+            throw new IllegalArgumentException("Product is not in stock, please try again later.");
+        }
     }
 
     private OrderLineItem mapToDto(OrderLineItemsDto orderLineItemsDto) {

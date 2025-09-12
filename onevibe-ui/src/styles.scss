@@ -1,0 +1,35 @@
+@use 'theme';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.main-toolbar {
+  .main-title {
+    font-family: 'Anton', sans-serif; /* Use the new font */
+    color: #00FBFF;
+    font-weight: 400; /* Anton is already bold, so 400 is fine */
+    font-size: 2.5rem; /* Increase the size */
+    letter-spacing: 2.5px; /* Add some space between letters */
+    text-transform: uppercase; /* Make it all caps */
+    font-style: italic;
+    transform: skewX(-10deg);
+  }
+
+  button[mat-button] {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease-in-out;
+  }
+
+  button[mat-button]:hover {
+    color: #FF8400; /* Orange */
+  }
+}

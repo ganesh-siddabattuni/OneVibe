@@ -14,6 +14,11 @@ h2 {
   gap: 1.5rem;
 }
 
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .product-card {
   transition: box-shadow 0.2s ease-in-out;
   display: flex;
@@ -26,9 +31,7 @@ h2 {
 
 .product-card img {
   height: 200px;
-  /* fix image height */
   object-fit: cover;
-  /* crop instead of stretch */
 }
 
 mat-card-title {
@@ -38,7 +41,6 @@ mat-card-title {
 
 .description {
   height: 40px;
-  /* Gives a consistent height */
   overflow: hidden;
 }
 
@@ -46,13 +48,4 @@ mat-card-title {
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1rem;
-}
-
-
-.product-link {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-  width: 100%;
-  max-width: 280px;
 }

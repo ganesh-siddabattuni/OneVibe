@@ -1,0 +1,11 @@
+<div class="gender-container">
+  <h2>Shop by Gender</h2>
+  <div class="gender-grid">
+    <a *ngFor="let gender of genders" class="gender-item" routerLink="/#">
+      <div class="image-wrapper">
+        <img [src]="gender.image" [alt]="gender.name">
+      </div>
+      <h3>{{ gender.name }}</h3>
+    </a>
+  </div>
+</div>

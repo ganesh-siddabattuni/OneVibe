@@ -7,3 +7,10 @@
 span[routerLink] {
   cursor: pointer;
 }
+
+/* ADD THIS BLOCK */
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
